@@ -35,6 +35,6 @@ RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("
 
 #Define the user in order to be the oxner of the created files
 #Cluster
-#USER 10008:9001
+USER 10008:9001
 #Local
 #USER 1001:1001
