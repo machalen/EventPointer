@@ -25,10 +25,16 @@ RUN apt-get update && apt-get install -y \
     
 ENV PATH=pkg-config:$PATH
 
-#Install packages: 
+#Install packages from CRAN, github, and bioconductor: 
 RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("ballgown" );'
 RUN Rscript -e 'install.packages("devtools")'
 RUN Rscript -e 'devtools::install_github("alyssafrazee/RSkittleBrewer")'
 RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("genefilter" );'
 RUN Rscript -e 'install.packages(c("dplyr","R.utils","aroma.affymetrix","data.table", "gtools", "Rcpp"))'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("DESeq2", "tweeDEseq", "EventPointer", "affxparser", "affy"))'
+
+#Define the user in order to be the oxner of the created files
+#Cluster
+#USER 10008:9001
+#Local
+#USER 1001:1001
