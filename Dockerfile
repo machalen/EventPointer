@@ -31,7 +31,7 @@ RUN Rscript -e 'install.packages("devtools")'
 RUN Rscript -e 'devtools::install_github("alyssafrazee/RSkittleBrewer")'
 RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("genefilter" );'
 RUN Rscript -e 'install.packages(c("dplyr","R.utils","aroma.affymetrix","data.table", "gtools", "Rcpp"))'
-RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("DESeq2", "tweeDEseq", "EventPointer", "affxparser", "affy"))'
+RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("DESeq2", "tweeDEseq", "EventPointer", "affxparser", "affy", "limma"))'
 
 #Define the user in order to be the oxner of the created files
 #Cluster
