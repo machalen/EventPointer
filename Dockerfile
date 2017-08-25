@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 ENV PATH=pkg-config:$PATH
 
 #Install packages from CRAN, github, and bioconductor: 
-RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("ballgown" );'
+RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite(pkgs=c("ballgown","aroma.light","DNAcopy"));'
 RUN Rscript -e 'install.packages("devtools")'
 RUN Rscript -e 'devtools::install_github("alyssafrazee/RSkittleBrewer")'
 RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("genefilter" );'
