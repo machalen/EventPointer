@@ -33,7 +33,7 @@ RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("genefilt
 RUN Rscript -e 'install.packages(c("dplyr","R.utils","aroma.affymetrix","data.table", "gtools", "Rcpp"))'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("DESeq2", "tweeDEseq", "EventPointer", "affxparser", "affy"))'
 
-#Define the user in order to be the oxner of the created files
+#Define the user in order to be the owner of the created files
 #Cluster
 USER 10008:9001
 #Local
