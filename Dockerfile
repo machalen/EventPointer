@@ -1,16 +1,15 @@
 #################################################################
 # Dockerfile
-#
-# Version:          1
 # Software:         R
 # Description:      R and necessary packages to use EventPointer
-# Website:          
-# Tags:             None, for the moment
 # Base Image:       R-base:3.4.0
 #################################################################
 
 #R image to be the base in order to build our new image
 FROM r-base:3.4.0
+
+#Maintainer and author
+MAINTAINER Magdalena Arnal <marnal@imim.es>
 
 #Install Ubuntu extensions in order to run r
 RUN apt-get update && apt-get install -y \
@@ -33,8 +32,3 @@ RUN Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite("genefilt
 RUN Rscript -e 'install.packages(c("dplyr","R.utils","aroma.affymetrix","data.table", "gtools", "Rcpp", "nnls"))'
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite(pkgs=c("DESeq2", "tweeDEseq", "EventPointer", "affxparser", "affy", "limma"))'
 
-#Define the user in order to be the oxner of the created files
-#Cluster
-#USER 10008:9001
-#Local
-USER 1001:1001
